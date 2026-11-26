@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or idea
+    url: https://github.com/alethialabs-io/alethialabs/discussions
+    about: Ask in Discussions on the main repository.
+  - name: Security issue
+    url: https://github.com/alethialabs-io/.github/blob/main/SECURITY.md
+    about: Never in a public issue. Email security@alethialabs.io.

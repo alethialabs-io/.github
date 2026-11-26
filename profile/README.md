@@ -1,48 +1,31 @@
 # Alethia Labs
 
-Alethia Labs builds an open-core control plane for multi-cloud infrastructure.
+Alethia runs Kubernetes in your own cloud account. It turns a repository into proposed
+infrastructure, plans it with OpenTofu, checks the plan with a deterministic gate, applies it in
+your account and hands you a signed receipt of what changed.
 
-Teams use Alethia to design infrastructure as a Project, plan the change, run it
-through controlled provisioning jobs, and hand the resulting Kubernetes estate to
-GitOps reconciliation. The product is built for platform teams that need a
-practical way to manage cloud infrastructure across AWS, GCP, Azure, and other
-environments without spreading long-lived cloud credentials through tools and
-pipelines.
+```sh
+brew install alethialabs-io/tap/alethia
+```
 
-## What we build
-
-- **Alethia Console** - a web control plane for projects, environments, jobs,
-  runners, alerts, and governance.
-- **`alethia` CLI** - a command-line interface for authentication, project
-  operations, planning, deployment, and runner workflows.
-- **Provisioning runners** - isolated workers that claim jobs, execute
-  OpenTofu/Terraform, and stream logs and status back to the control plane.
-- **Infrastructure templates** - versioned modules for cloud networks,
-  Kubernetes clusters, databases, caches, DNS, secrets, registries, and
-  supporting services.
-- **GitOps integration** - ArgoCD-based reconciliation after provisioning, so
-  deployed clusters stay aligned with source-controlled state.
-
-## Principles
-
-- **No stored cloud keys by default.** Cloud access is designed around
-  short-lived federated identity wherever the provider supports it.
-- **Self-hostable core.** The core platform is open source under AGPL-3.0 and
-  can run on your own infrastructure.
-- **Operational visibility.** Plans, applies, runner activity, logs, alerts,
-  and infrastructure state are visible from one place.
-- **Open core, clear boundaries.** Core infrastructure workflows are open
-  source; enterprise features add organization governance, SSO, custom roles,
-  and audit controls.
+AWS, Google Cloud and Azure connect without stored cloud keys, through short-lived federated
+identity. Hetzner uses a scoped API token, because Hetzner has no federation. The core is open
+source under AGPL-3.0 and self-hostable.
 
 ## Repositories
 
-- [`alethialabs`](https://github.com/alethialabs-io/alethialabs) - main
-  monorepo for the console, CLI, runners, docs, infrastructure, and shared
-  packages.
+| Repository | What it is |
+| --- | --- |
+| [`alethialabs`](https://github.com/alethialabs-io/alethialabs) | The main repository: console, CLI, runner, docs and self-host stacks. Issues and PRs go here |
+| [`alethia-examples`](https://github.com/alethialabs-io/alethia-examples) | Online Boutique across environments, and bring-your-own OpenTofu modules |
+| [`alethia-starter-ai`](https://github.com/alethialabs-io/alethia-starter-ai) | Template: RAG, a vector database and model serving |
+| [`alethia-starter-apps`](https://github.com/alethialabs-io/alethia-starter-apps) | Template: an ArgoCD apps destination |
+| [`alethia-starter-chart`](https://github.com/alethialabs-io/alethia-starter-chart) | Template: bring your own Helm chart |
+| [`alethia-cli`](https://github.com/alethialabs-io/alethia-cli) | Read-only mirror of the CLI, published by CI |
+| [`homebrew-tap`](https://github.com/alethialabs-io/homebrew-tap) · [`scoop-bucket`](https://github.com/alethialabs-io/scoop-bucket) | Install the CLI on macOS, Linux and Windows |
 
 ## Links
 
+- Docs: https://alethialabs.io/docs
 - Website: https://alethialabs.io
-- Documentation: https://alethialabs.io/docs
-- Main repository: https://github.com/alethialabs-io/alethialabs
+- Security reports: security@alethialabs.io (see [SECURITY.md](https://github.com/alethialabs-io/.github/blob/main/SECURITY.md))

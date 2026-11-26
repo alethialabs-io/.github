@@ -1,0 +1,35 @@
+name: Bug report
+description: Something does not work as the docs say.
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Console, CLI, Runner, Self-host, Docs, Starter or example repo, Other]
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: "`alethia version`, or the commit you run."
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what you expected
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. …\n2. …"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: Remove credentials, tokens and account IDs first.
+      render: text
